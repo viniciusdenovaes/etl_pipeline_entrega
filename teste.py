@@ -12,7 +12,7 @@ def test():
 
     logger.info(f'showing some excel data: {"COMBUSTÍVEL	    ANO	    REGIÃO	        ESTADO	    Jan"}')
     logger.info(f'showing some excel data: {"GASOLINA C (m3)	2000	REGIÃO NORTE	RONDÔNIA	136073,253"}')
-    for df in dfs:
-        res = df[df['COMBUSTÍVEL'] == 'GASOLINA C (m3)']
-        print(res)
+    # for df in dfs:
+    #     res = df[df['COMBUSTÍVEL'] == 'GASOLINA C (m3)']
+    #     print(res)
 
