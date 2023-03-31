@@ -1,10 +1,24 @@
-FROM python:3.8
+# syntax=docker/dockerfile:1
+FROM ubuntu:22.04
 
+# install app dependencies
+RUN apt-get update && apt-get install -y python3 python3-pip
 COPY requirements.txt /requirements.txt
-RUN pip install -r /requirements.txt
-WORKDIR /data_science
-COPY main/ /data_science/
+RUN pip install -r requirements.txt
 
-ENV PYTHONPATH=$PYTHONPATH:/data_science
+RUN  apt-get update \
+  && apt-get install -y wget
 
-ENTRYPOINT ["python", "/data_science/main/main.py"]
+RUN apt-get install -y libreoffice-common
+
+# Install OpenJDK-11
+RUN apt-get update && \
+    apt-get install -y openjdk-11-jre-headless && \
+    apt-get clean;
+
+
+# install app
+COPY load.py  main.py  requirements.txt  save.py  transform.py logger.py download.py /
+
+# final configuration
+CMD python3 main.py
