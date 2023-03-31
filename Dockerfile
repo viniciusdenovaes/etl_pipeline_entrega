@@ -10,6 +10,8 @@ RUN  apt-get update \
   && apt-get install -y wget
 
 RUN apt-get install -y libreoffice-common
+RUN apt-get install -y libreoffice-writer
+RUN apt-get install -y libreoffice
 
 # Install OpenJDK-11
 RUN apt-get update && \

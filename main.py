@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     logger.info(f'importing data')
     DataGetter().make()
-    logger.success(f'data ipmorted')
+    logger.success(f'data imported')
 
     logger.info(f'In main, calling load')
     load = Load()

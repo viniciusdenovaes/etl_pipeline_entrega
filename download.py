@@ -17,6 +17,7 @@ class DataGetter:
         os.system(f'wget {self.url}')
 
     def convert(self):
+        logger.info(f'converting {self.file_name}')
         os.system(f'soffice --headless --convert-to ods {self.file_name}')
 
 
