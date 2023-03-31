@@ -3,8 +3,9 @@ from pathlib import Path
 from typing import List, Tuple
 
 import pandas as pd
-import logging as logger
 
+import logger as logger_util
+logger = logger_util.getLogger(__name__)
 
 path = Path(__file__).parent
 
@@ -25,15 +26,19 @@ class Load:
         return self.load_diesel(), self.load_oilder()
 
 
-    def load_diesel(self):
+    def load_diesel(self) -> pd.DataFrame:
         sheet = path/self.sheet_file
         book = self.diesel_sheet_name
-        return self.load(sheet, book)
+        df = self.load(sheet, book)
+        df.name = 'diesel book'
+        return df
 
 
     def load_oilder(self):
         sheet = path/self.sheet_file
         book = self.oilder_sheet_name
-        return self.load(sheet, book)
+        df = self.load(sheet, book)
+        df.name = 'oil derivative book'
+        return df
 
 

@@ -1,6 +1,9 @@
 import pandas as pd
 import datetime as dt
 
+import logger as logger_util
+logger = logger_util.getLogger(__name__)
+
 
 class Transform:
     def __init__(self):
@@ -24,6 +27,7 @@ class Transform:
         months_to_int = lambda x: months_to_int_d[x]
 
         # transforming the data
+        logger.info(f'melting table {table.name}')
         table = table.melt(id_vars=['ANO', 'COMBUSTÍVEL', 'ESTADO'],
                            value_vars=months, var_name='MONTH',
                            value_name='volume')

@@ -2,3 +2,5 @@ pandas
 pyspark
 pyarrow
 odfpy
+
+verboselogs
