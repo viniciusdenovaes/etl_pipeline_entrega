@@ -18,7 +18,7 @@ class DataGetter:
 
     def convert(self):
         logger.info(f'converting {self.file_name}')
-        os.system(f'soffice --headless --convert-to ods {self.file_name}')
+        os.system(f'soffice --headless --nologo --norestore --convert-to ods {self.file_name}')
 
 
 if __name__ == '__main__':

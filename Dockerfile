@@ -9,8 +9,9 @@ RUN pip install -r requirements.txt
 RUN  apt-get update \
   && apt-get install -y wget
 
-RUN apt-get install -y libreoffice-common
-RUN apt-get install -y libreoffice-writer
+# RUN apt-get install -y libreoffice-base
+# RUN apt-get install -y libreoffice-common
+# RUN apt-get install -y libreoffice-writer
 RUN apt-get install -y libreoffice
 
 # Install OpenJDK-11
