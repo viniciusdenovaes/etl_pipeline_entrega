@@ -14,9 +14,9 @@ def save(df: pd.DataFrame):
          StructField("volume", DoubleType(), True),
          StructField("created_at", TimestampType(), True),
          ])
-    for e, (i, r) in enumerate(df.iterrows()):
-        if e > 10: break
-        print(i, r)
+    # for e, (i, r) in enumerate(df.iterrows()):
+    #     if e > 10: break
+    #     print(i, r)
     sp_df = spark.createDataFrame(df, schema=schema)
 
     sp_df.write.option("header", True) \
